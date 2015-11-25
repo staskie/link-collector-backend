@@ -1,4 +1,4 @@
-# Find unique categories used by a user 
+# Find unique categories used by a give user
 
 class UserCategoriesQuery
   def self.call(user)

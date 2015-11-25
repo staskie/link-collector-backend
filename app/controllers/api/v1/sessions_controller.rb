@@ -1,7 +1,6 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-
       def destroy
         @current_user = nil
 
@@ -10,7 +9,6 @@ module Api
 
         render json: 'Session removed', status: :ok
       end
-
     end
   end
 end

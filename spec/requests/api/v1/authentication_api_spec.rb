@@ -68,7 +68,8 @@ describe 'Authenticate API' do
 
     context 'and email is invalid' do
       before do
-        get '/api/v1/links.json', nil, basic_auth('invalid.email@example.com', 'password')
+        get '/api/v1/links.json', nil,
+          basic_auth('invalid.email@example.com', 'password')
       end
 
       it 'keeps requesting a basic auth' do

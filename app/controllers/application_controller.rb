@@ -6,9 +6,7 @@ class ApplicationController < ActionController::API
 
   private
 
-  def current_user
-    @current_user
-  end
+  attr_reader :current_user
 
   def authenticate
     uuid    = request.headers['X-API-UUID']
