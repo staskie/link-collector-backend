@@ -6,6 +6,7 @@ gem 'active_model_serializers', '~> 0.8.3'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'sqlite3'
+gem 'rack-cors'
 
 group :development do
   gem 'pry-byebug'

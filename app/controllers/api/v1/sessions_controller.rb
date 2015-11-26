@@ -1,13 +1,18 @@
 module Api
   module V1
-    class SessionsController < ApplicationController
-      def destroy
-        @current_user = nil
+    class SessionsController < BaseController
 
-        response.headers['X-API-UUID']  = nil
-        response.headers['X-API-TOKEN'] = nil
+      skip_before_filter :authenticate, only: [:create]
 
-        render json: 'Session removed', status: :ok
+      def create
+        user = AuthenticateUser.call(params[:email], params[:password])
+
+        if user
+          render json: SessionSerializer.new(user, root: false).to_json,
+                 status: :ok
+        else
+          authentication_error
+        end
       end
     end
   end

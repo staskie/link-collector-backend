@@ -101,6 +101,7 @@ GEM
       byebug (~> 8.0)
       pry (~> 0.10)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.3)
@@ -183,6 +184,7 @@ DEPENDENCIES
   faker
   guard-rspec
   pry-byebug
+  rack-cors
   rails (= 4.2.3)
   rails-api
   rspec-rails

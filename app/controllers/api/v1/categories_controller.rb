@@ -1,9 +1,9 @@
 module Api
   module V1
-    class CategoriesController < ApplicationController
+    class CategoriesController < BaseController
       def index
         render json: UserCategoriesQuery.call(current_user),
-               each_serializer: ::V1::CategorySerializer
+               each_serializer: CategorySerializer
       end
 
       def create
@@ -11,7 +11,7 @@ module Api
 
         if category.save
           render json: category,
-                 serializer: ::V1::CategorySerializer,
+                 serializer: CategorySerializer,
                  status: :created
         else
           render json: { error: 'Could not create a category' },

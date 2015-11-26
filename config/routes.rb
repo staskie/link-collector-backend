@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :links
       resources :categories
-      resources :sessions, only: [:destroy]
+      resources :sessions, only: [:create]
     end
   end
 
