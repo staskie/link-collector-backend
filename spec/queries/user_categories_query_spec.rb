@@ -10,7 +10,6 @@ describe UserCategoriesQuery do
   describe '.call' do
     subject { described_class.call(user) }
 
-
     it 'returns unique categories used by a given user' do
       expect(subject).to eq [programming]
     end
