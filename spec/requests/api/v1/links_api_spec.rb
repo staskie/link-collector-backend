@@ -66,7 +66,7 @@ describe 'Links API' do
     end
   end
 
-  # PATCH /api/v1/link/:id
+  # PATCH /api/v1/links/:id
   describe 'update a link' do
     let(:link) { create :link, category: category, user: user }
 
@@ -108,6 +108,24 @@ describe 'Links API' do
       it 'returns `:unprocessable_entity` status' do
         expect(response.status).to eq 422
       end
+    end
+  end
+
+  # DELETE /api/v1/links/:id
+  describe 'remove a link' do
+    let!(:link) { create :link, user: user }
+
+    subject do
+      delete "/api/v1/links/#{link.id}.json", {}, auth_headers(user)
+    end
+
+    it 'returns `ok` status' do
+      subject
+      expect(response.status).to eq 200
+    end
+
+    it 'deletes a link' do
+      expect { subject }.to change(Link, :count).by(-1)
     end
   end
 end

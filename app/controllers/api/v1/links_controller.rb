@@ -17,7 +17,7 @@ module Api
       end
 
       def update
-        form = LinkForm.new(Link.find(params[:id]))
+        form = LinkForm.new(current_user.links.find(params[:id]))
 
         if form.submit(link_params)
           render json: form.link, serializer: LinkSerializer, status: :ok
@@ -26,7 +26,11 @@ module Api
         end
       end
 
-      def delete
+      def destroy
+        link = current_user.links.find(params[:id])
+
+        link.destroy
+        render json: { message: 'Link removed' }, status: :ok
       end
 
       private
