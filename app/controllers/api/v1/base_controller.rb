@@ -30,7 +30,6 @@ module Api
 
       def sign_in(user)
         @current_user = user
-        GenerateNewToken.call(current_user)
 
         response.headers['X-API-UUID']  = current_user.uuid
         response.headers['X-API-TOKEN'] = current_user.token

@@ -7,5 +7,6 @@ class GenerateNewToken
 
   def call(user)
     user.update_attributes(token: SecureRandom.hex)
+    user
   end
 end
