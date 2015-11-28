@@ -127,5 +127,13 @@ describe 'Links API' do
     it 'deletes a link' do
       expect { subject }.to change(Link, :count).by(-1)
     end
+
+    it 'returns an id of a deleted link' do
+      subject
+      expect(response_body).to eq({
+        message: 'Link removed',
+        id: link.id
+      })
+    end
   end
 end

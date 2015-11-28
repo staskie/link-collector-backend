@@ -30,7 +30,7 @@ module Api
         link = current_user.links.find(params[:id])
 
         link.destroy
-        render json: { message: 'Link removed' }, status: :ok
+        render json: { message: 'Link removed', id: link.id }, status: :ok
       end
 
       private
