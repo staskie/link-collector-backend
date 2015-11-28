@@ -17,7 +17,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
 
-  config.include Request::Helpers, type: :request
+  config.include Request::Helpers
 
   config.before :suite do
     DatabaseCleaner.clean_with :truncation

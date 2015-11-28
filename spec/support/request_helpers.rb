@@ -1,7 +1,11 @@
 module Request
   module Helpers
     def response_body
-      JSON.parse(response.body).deep_symbolize_keys
+      parse(response.body)
+    end
+
+    def parse(json)
+      JSON.parse(json).deep_symbolize_keys
     end
 
     def basic_auth(email, password)

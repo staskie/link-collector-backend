@@ -26,6 +26,9 @@ module Api
         end
       end
 
+      def delete
+      end
+
       private
 
       def link_params

@@ -8,7 +8,7 @@ module Api
         user = AuthenticateUser.call(params[:email], params[:password])
 
         if user
-          render json: SessionSerializer.new(user, root: false).to_json,
+          render json: SessionSerializer.new(user).to_json,
                  status: :ok
         else
           authentication_error

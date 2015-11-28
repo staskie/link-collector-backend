@@ -1,7 +1,11 @@
 module Api
   module V1
     class CategorySerializer < ActiveModel::Serializer
-      attributes :id, :name, :links
+      root false
+
+      attributes :id, :name
+
+      has_many :links, serializer: LinkSerializer
     end
   end
 end
