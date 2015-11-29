@@ -5,7 +5,7 @@ describe 'Links API' do
   let(:category) { create :category }
 
   # GET /api/v1/links
-  describe 'list available links' do
+  describe 'available links' do
     let!(:google) { create :link, user: user, category: category }
     let!(:yahoo)  { create :link, user: user, category: category }
 
@@ -136,4 +136,23 @@ describe 'Links API' do
       })
     end
   end
+
+
+  # GET /api/v1/categories/:category_id/links
+  describe 'links for a given category' do
+    let(:other_category) { create :category, name: 'Misc' }
+
+    let!(:google) { create :link, user: user, category: category }
+    let!(:yahoo)  { create :link, user: user, category: category }
+    let!(:bing)   { create :link, user: user, category: other_category }
+
+    before do
+      get "/api/v1/categories/#{category.id}/links", {}, auth_headers(user)
+    end
+
+    it 'returns links that belongs to the category' do
+      expect(response_body[:category_links].size).to eq 2
+    end
+  end
+
 end

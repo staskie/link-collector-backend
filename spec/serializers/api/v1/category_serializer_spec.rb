@@ -10,12 +10,10 @@ module Api::V1
 
     it 'returns a valid json response' do
       parsed_category_response = parse(subject)
-      parsed_link_response     = parse(LinkSerializer.new(link).to_json)
 
       expect(parsed_category_response).to eq({
         id:    category.id,
-        name:  category.name,
-        links: [parsed_link_response]
+        name:  category.name
       })
     end
   end

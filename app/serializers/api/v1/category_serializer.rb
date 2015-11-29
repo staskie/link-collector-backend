@@ -4,8 +4,6 @@ module Api
       root false
 
       attributes :id, :name
-
-      has_many :links, serializer: LinkSerializer
     end
   end
 end
