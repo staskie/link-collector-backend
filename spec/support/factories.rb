@@ -9,6 +9,7 @@ FactoryGirl.define do
 
   factory :link do
     url Faker::Internet.url
+    name Faker::Lorem.words(5).join(' ')
     user
     category
   end

@@ -4,6 +4,7 @@ class Link < ActiveRecord::Base
 
   validates :url, presence: true
   validates :category, presence: true
+  validates :name, presence: true
 
   def category_name
     category.name

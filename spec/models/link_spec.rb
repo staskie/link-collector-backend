@@ -6,6 +6,7 @@ describe Link do
 
   it { should validate_presence_of(:url) }
   it { should validate_presence_of(:category) }
+  it { should validate_presence_of(:name) }
 
   describe '#category_name' do
     let(:category) { create :category }

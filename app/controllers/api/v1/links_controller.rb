@@ -36,7 +36,7 @@ module Api
       private
 
       def link_params
-        params.require(:link).permit(:category_name, :url)
+        params.require(:link).permit(:category_name, :url, :name)
           .merge(user: current_user)
       end
 

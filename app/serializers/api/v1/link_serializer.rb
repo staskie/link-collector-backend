@@ -3,7 +3,7 @@ module Api
     class LinkSerializer < ActiveModel::Serializer
       root false
 
-      attributes :id, :url, :category_name
+      attributes :id, :name, :url, :category_name
 
       def category_name
         object.category_name

@@ -6,6 +6,7 @@ describe LinkForm do
   let(:valid_params) do
     {
       category_name: category.name,
+      name: 'Yahoo',
       url: 'http://yahoo.co.uk'
     }
   end
@@ -13,6 +14,7 @@ describe LinkForm do
   let(:invalid_params) do
     {
       category_name: category.name,
+      name: 'Yahoo',
       url: ''
     }
   end
@@ -50,8 +52,7 @@ describe LinkForm do
 
     context 'when passing all required parameters' do
       it 'updates a link' do
-        valid_params.merge!(category_name: 'Engines')
-        subject.submit(valid_params)
+        subject.submit(category_name: 'Engines')
 
         expect(link.reload.category.name).to eq 'Engines'
       end
@@ -59,8 +60,7 @@ describe LinkForm do
 
     context 'when parameters are invalid' do
       it 'does not update a link' do
-        invalid_params.merge!(category_name: 'Engines')
-        subject.submit(invalid_params)
+        subject.submit(category_name: '')
 
         expect(link.reload.category.name).to eq category.name
       end

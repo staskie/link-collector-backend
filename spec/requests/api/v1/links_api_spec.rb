@@ -24,6 +24,7 @@ describe 'Links API' do
       post '/api/v1/links.json', {
         link: {
           category_name: 'Search Engine',
+          name: 'Google',
           url: 'http://google.com'
         }
       }, auth_headers(user)
@@ -45,6 +46,7 @@ describe 'Links API' do
         post '/api/v1/links.json', {
           link: {
             category_name: 'Invalid',
+            name: 'Invalid url',
             url: ''
           }
         }, auth_headers(user)

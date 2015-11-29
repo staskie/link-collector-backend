@@ -13,6 +13,7 @@ module Api::V1
 
       expect(parsed_response).to eq({
         id:            link.id,
+        name:          link.name,
         url:           link.url,
         category_name: link.category_name
       })

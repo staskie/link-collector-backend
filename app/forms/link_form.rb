@@ -22,8 +22,9 @@ class LinkForm
   private
 
   def assign_attributes(params)
-    link.user = params[:user]
-    link.url  = params[:url]
+    link.user = params[:user] if params.has_key?(:user)
+    link.url  = params[:url]  if params.has_key?(:url)
+    link.name = params[:name] if params.has_key?(:name)
 
     if params[:category_name].present?
       link.category = Category.where(name: params[:category_name])
