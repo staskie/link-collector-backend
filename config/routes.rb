@@ -8,6 +8,4 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
     end
   end
-
-  root 'api/v1/home#index'
 end
